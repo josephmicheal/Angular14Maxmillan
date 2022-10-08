@@ -1,0 +1,12 @@
+<h3> I'm in the AppComponent!</h3>
+
+<button (click)=onToggle() class="btn btn-primary"> Display Details</button>
+<p *ngIf="showDetails">My Content Details</p>
+<div *ngFor="let logItem of log; let currIdx = index" 
+[ngStyle]="{backgroundColor: currIdx > 4 ? 'blue':'transparent'}"
+[ngClass]="{'whiteText': currIdx > 4}">{{ logItem}}</div>
+
+<div class="app-servers"></div>
+
+<app-alert-failure></app-alert-failure>
+<app-alert-success></app-alert-success>

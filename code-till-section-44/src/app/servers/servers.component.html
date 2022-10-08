@@ -1,0 +1,32 @@
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+      <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+    </label>
+  </div>
+
+
+UserName: <input type="text" [(ngModel)]="userName" />
+<br> <p [innerText]="userName"></p> 
+<button class="btn btn-primary" [disabled]="userName==''" (click)="userName=''">Reset</button>
+
+<br>
+
+<p>Server Name</p>
+<input name="serverName" (input)="updateServerName($event)"/>
+
+<br>Two way binding:
+<input type="text" [(ngModel)]="serverName"/>
+String interpolation:{{serverName}}
+
+<br><button class="btn btn-primary" [disabled]="!allowAddServer" (click)="onCreateServer()">Add Server</button>
+<p *ngIf="serverCreated">{{serverAddStatus}}</p>
+<p *ngIf="!serverCreated">No servers are added</p>
+<p>servers starts...</p>
+<server-component *ngFor=" let server of servers"></server-component>
+<p>.....servers ended</p>
